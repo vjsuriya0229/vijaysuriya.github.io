@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vijay Suriya | Profile & Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-alt: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.55);
+      --radius-xl: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* NAVBAR */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.65));
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      margin: 10px auto 32px;
+      max-width: 780px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-logo-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #4ade80, #22c55e 45%, #15803d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #022c22;
+      font-weight: 700;
+      box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.4),
+        0 14px 35px rgba(34, 197, 94, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      transition: all 0.18s ease-out;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .nav-cta {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      background: radial-gradient(circle at 0 0, #22c55e 0, #14532d 55%, #020617 100%);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e5f9ef;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 12px 30px rgba(22, 163, 74, 0.7);
+      cursor: pointer;
+      transition: transform 0.14s ease-out, box-shadow 0.14s ease-out;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(22, 163, 74, 0.9);
+    }
+
+    .nav-cta span.icon {
+      font-size: 14px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-left {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 118, 110, 0.7));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 24px 22px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+      margin-bottom: 14px;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+    }
+
+    .hero-title {
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #bbf7d0, #22c55e, #a5f3fc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0 0, #22c55e 0, #16a34a 45%, #14532d 100%);
+      color: #ecfdf3;
+      border-color: rgba(22, 163, 74, 0.9);
+      box-shadow: 0 16px 40px rgba(21, 128, 61, 0.85);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(22, 163, 74, 1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(226, 232, 240, 0.9);
+      color: var(--text);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.38);
+      padding-top: 12px;
+      margin-top: 6px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(45, 212, 191, 0.5);
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.8);
+    }
+
+    .hero-badge-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #22c55e, #0ea5e9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .hero-right {
+      display: grid;
+      gap: 14px;
+    }
+
+    .card {
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.98));
+      padding: 14px 14px 12px;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.85);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .card-pill {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .card-list {
+      margin-top: 8px;
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 6px;
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .card-list-bullet {
+      margin-top: 5px;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #22c55e;
+      opacity: 0.9;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill-row span {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 8px;
+    }
+
+    .mini-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .timeline li {
+      margin-bottom: 8px;
+      padding-left: 12px;
+      border-left: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -3px;
+      top: 4px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .timeline strong {
+      color: #e5e7eb;
+    }
+
+    /* PROJECT CARDS */
+    .project-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.05), rgba(15, 23, 42, 0.98));
+      padding: 12px 12px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .project-card h3 {
+      font-size: 13px;
+      margin-bottom: 5px;
+      color: #e5e7eb;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      margin-bottom: 5px;
+      color: var(--muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .project-tags span {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    /* POETRY */
+    .poem-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.35), rgba(15, 23, 42, 0.98));
+      padding: 14px 14px 10px;
+      font-size: 13px;
+      color: #e5e7eb;
+      font-style: italic;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poem-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .poem-handle {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* CONTACT */
+    .contact-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: linear-gradient(145deg, rgba(22, 163, 74, 0.14), rgba(15, 23, 42, 0.98));
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .contact-item {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item span.icon {
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-inner {
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="nav-logo-badge">V</div>
+          <div>
+            <div style="font-size: 13px;">Vijay&nbsp;Suriya</div>
+            <div style="font-size: 10px; color: var(--muted);">Development & Climate Practitioner</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#poetry">Poetry</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">
+          <span class="icon">✉️</span>
+          <span>Connect</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-left">
+          <div class="hero-pill">
+            <span class="hero-pill-dot"></span>
+            <span>Working with coastal & farming communities</span>
+          </div>
+          <h1 class="hero-title">
+            Hi, I’m <span>Vijay&nbsp;Suriya</span> — building resilience with people & nature.
+          </h1>
+          <p class="hero-subtitle">
+            Development professional from Tamil Nadu with experience in DHAN Foundation, fishermen federations,
+            climate change adaptation and mangrove conservation — and a secret love for poetry & travel.
+          </p>
+          <div class="hero-tags">
+            <span class="chip">🌱 Climate & Ecology</span>
+            <span class="chip">🌊 Coastal Communities</span>
+            <span class="chip">👨‍🌾 Farmers & Fishers</span>
+            <span class="chip">✒️ Poetry</span>
+            <span class="chip">🚶 Travel & Culture</span>
+          </div>
+          <div class="hero-buttons">
+            <a href="#work" class="btn-primary">
+              View my work
+              <span>↗</span>
+            </a>
+            <a href="#poetry" class="btn-ghost">
+              Read a short poem
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span>📍 <strong>Madurai & Coastal Tamil Nadu</strong></span>
+            <span>📌 <strong>PG Diploma</strong> in Development Management</span>
+          </div>
+
+          <div class="hero-badge-float">
+            <div class="hero-badge-icon">🌿</div>
+            <div style="font-size: 11px;">
+              <div style="font-weight: 500;">Mangrove Conservation</div>
+              <div style="font-size: 10px; color: var(--muted);">Point Calimere & coastal belts</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Current Focus</div>
+              <div class="card-pill">2025</div>
+            </div>
+            <div class="card-body">
+              Supporting coastal communities through:
+              <ul class="card-list">
+                <li>
+                  <span class="card-list-bullet"></span>
+                  <span>Fishermen production organisations & livelihood strengthening.</span>
+                </li>
+                <li>
+                  <span class="card-list-bullet"></span>
+                  <span>Mangrove restoration, wetland conservation & climate literacy.</span>
+                </li>
+                <li>
+                  <span class="card-list-bullet"></span>
+                  <span>Community institutions that build long-term resilience.</span>
+                </li>
+              </ul>
+              <div class="pill-row">
+                <span>HCL & GIZ Projects</span>
+                <span>Point Calimere</span>
+                <span>Community Mobilisation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div class="card-title">Quick Snapshot</div>
+              <div class="card-pill">Profile</div>
+            </div>
+            <div class="card-body">
+              <div class="mini-label">Family & Roots</div>
+              <p>From a small agricultural family in Sivagangai — values of hard work, care and simplicity guide my work.</p>
+              <div class="mini-label" style="margin-top: 8px;">What drives me</div>
+              <p>Helping marginal fishermen & farmers face climate risks with dignity, knowledge, and strong institutions.</p>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <h2 class="section-title">About me</h2>
+          <p class="section-sub">A short journey from Melanettur to coastal wetlands.</p>
+        </div>
+        <div class="grid-2">
+          <div class="about-text">
+            <p>
+              I grew up in Melanettur, Sivagangai district, in a small farming family. After completing my
+              schooling at St. Mary’s Higher Secondary School, Rajaghambiram, I pursued a
+              <strong>B.Sc. in Computer Science</strong> at Dr. Zakir Husain College, Ilayangudi.
+            </p>
+            <p>
+              My career took a turn from sales management into the development sector when I joined
+              <strong>DHAN Foundation</strong> and completed a <strong>PG Diploma in Development Management</strong> at
+              the DHAN Academy, Malaipatti.
+            </p>
+            <p>
+              Working with fishermen federations, coastal communities and youth groups has shaped my
+              understanding of poverty, ecology, and resilience. I believe travel, listening, and local
+              wisdom are the best teachers.
+            </p>
+          </div>
+          <div>
+            <div class="mini-label">Timeline</div>
+            <ul class="timeline">
+              <li>
+                <strong>PG Diploma in Development Management</strong> – DHAN Academy (2021)
+              </li>
+              <li>
+                <strong>CALL Programme</strong>, DHAN Foundation – 2.5+ years of field experience.
+              </li>
+              <li>
+                Working with <strong>Voimedu fishermen’s federation</strong> and Point Calimere region on ecology & livelihoods.
+              </li>
+              <li>
+                Facilitating climate literacy, mangrove restoration and community resilience programmes.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORK / PROJECTS -->
+      <section class="section" id="work">
+        <div class="section-header">
+          <h2 class="section-title">Work & projects</h2>
+          <p class="section-sub">Some key themes I’ve been involved in recently.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="project-card">
+            <div class="project-meta">
+              <span>🌿 Mangrove & Wetland Restoration</span>
+              <span>Point Calimere</span>
+            </div>
+            <h3>MERIT Mangrove Conservation & Wetland Restoration</h3>
+            <p>
+              Supporting community-led mangrove restoration, waterbody desiltation, and awareness in fringe villages
+              around the Point Calimere Wetland Complex, with a focus on climate resilience and biodiversity.
+            </p>
+            <div class="project-tags">
+              <span>HCL Foundation</span>
+              <span>Community Institutions</span>
+              <span>Water Security</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span>🌊 Fishermen Livelihoods</span>
+              <span>Voimedu & Coast</span>
+            </div>
+            <h3>Fishermen Production Organisation Studies</h3>
+            <p>
+              Field studies on sea fishing, canal fishing, equipment use, and value chains to strengthen fishermen
+              federations and design better support systems for marginal fishing families.
+            </p>
+            <div class="project-tags">
+              <span>Value Chain</span>
+              <span>Livelihoods</span>
+              <span>Community Research</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top: 14px;">
+          <article class="project-card">
+            <div class="project-meta">
+              <span>📘 Climate Literacy</span>
+              <span>Tamil Nadu</span>
+            </div>
+            <h3>Climate Change & Community Resilience Sessions</h3>
+            <p>
+              Designing and facilitating sessions for coastal communities on climate impacts, local adaptation,
+              and ecological restoration, including youth engagement and school-level awareness.
+            </p>
+            <div class="project-tags">
+              <span>Climate Education</span>
+              <span>Youth in Climate Action</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span>💧 Water & Ecology</span>
+              <span>Rural & Coastal</span>
+            </div>
+            <h3>Waterbody Rehabilitation & Agroforestry Ideas</h3>
+            <p>
+              Exploring prosopis removal, agroforestry models, percolation tanks, sand dune conservation, and nesting
+              zones for sea turtles as part of a broader climate resilience strategy.
+            </p>
+            <div class="project-tags">
+              <span>Agroforestry</span>
+              <span>Groundwater Recharge</span>
+              <span>Sea Turtle Habitat</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- POETRY -->
+      <section class="section" id="poetry">
+        <div class="section-header">
+          <h2 class="section-title">Poetry & writing</h2>
+          <p class="section-sub">A small space where my reflections become words.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="poem-card">
+            <p>
+              “Every action has some meaning,<br />
+              you can find it only<br />
+              when you look at it closely.”
+            </p>
+            <div class="poem-meta">
+              <span>Short reflective verse on life & choices.</span>
+              <span class="poem-handle">@your_poetry_handle</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>My poetry plans</h3>
+            <p>
+              I run (or plan to run) an Instagram page to share poems on life, community,
+              nature, and silent everyday moments. I’m slowly building the discipline to post regularly.
+            </p>
+            <div class="project-tags">
+              <span>Tamil & English</span>
+              <span>Instagram Poetry</span>
+              <span>Reflections</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <h2 class="section-title">Let’s connect</h2>
+          <p class="section-sub">For collaborations, discussions, or just to say hello.</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-grid">
+            <div>
+              <p>
+                I’m always happy to connect with people working on development, climate resilience,
+                coastal ecosystems, or creative projects like storytelling and poetry.
+              </p>
+              <div class="contact-row">
+                <div class="contact-item">
+                  <span class="icon">📧</span>
+                  <span><strong>Email:</strong> yourmail@example.com</span>
+                </div>
+                <div class="contact-item">
+                  <span class="icon">📷</span>
+                  <span><strong>Instagram:</strong> @your_poetry_handle</span>
+                </div>
+                <div class="contact-item">
+                  <span class="icon">🌐</span>
+                  <span>Available for talks & field visits</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="mini-label">How you can use this space</div>
+              <ul class="timeline">
+                <li><strong>Show your profile</strong> – update your name, photo, bio.</li>
+                <li><strong>Share your projects</strong> – add more work cards as you grow.</li>
+                <li><strong>Feature your poems</strong> – paste new poems into the poetry section.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Vijay Suriya. Built with care for people, places & poetry.
+      <br />
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+
+  <script>
+    // Set year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 24,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
