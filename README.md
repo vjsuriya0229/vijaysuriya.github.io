@@ -1,3 +1,4 @@
+![WhatsApp Image 2025-11-08 at 1 10 37 PM (1)](https://github.com/user-attachments/assets/8e2c124c-08a3-41ec-b00c-6c1e8d926630)
 # Personal Website – Vijay Suriya
 
 This is my personal website built using HTML and CSS.  
